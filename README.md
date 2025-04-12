@@ -1,97 +1,60 @@
-# hashmon
+# 🦴 Hashmon
 
-`hashmon` is a fast, terminal-based TUI monitor for watching hashrate and worker stats from multiple mining pools.
-
-It supports both [FastPool](https://fastpool.xyz)'s **XLA** and **SALV** endpoints, with per-worker hashrate tracking, best-performer highlighting, and a clean live-updating display.
+A lightweight, mobile-friendly hashrate monitoring app for XLA and SALV miners.
 
 ---
 
-## 🔧 Features
+## 📱 Mobile (Kivy for Android)
 
-- Real-time stats from XLA and SALV pools  
-- Bold highlighting for top-performing worker  
-- Countdown bar between refreshes  
-- Clean TUI with minimal dependencies  
-- Configurable via `.env` file or environment variables  
+`hashmon` runs as a native Android app using [Kivy](https://kivy.org) and [Buildozer](https://github.com/kivy/buildozer).
 
----
-
-## 🚀 Installation
-
-1. Clone the repo or copy the script:
-
-    ```bash
-    git clone https://github.com/yourusername/hashmon.git
-    cd hashmon
-    ```
-
-2. Install dependencies:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-    Or manually:
-
-    ```bash
-    pip install rich python-dotenv
-    ```
+### Features:
+- Live stats for XLA and SALV miners via Fastpool
+- Progress bar countdown between refreshes
+- Worker grid with names and hashrates
+- Highlight highest hashrate worker per coin
+- Auto-refresh every 30 seconds
+- Human-readable hashrate formatting (KH/s, MH/s, GH/s, etc.)
+- Touch-friendly layout
 
 ---
 
-## ⚙️ Setup
+## ⚙️ Build Instructions
 
-Create a `.env` file in the project root with your wallet addresses:
+### Requirements
+- Linux system (WSL or native)
+- Python 3.10+
+- `buildozer`, `cython`, and Android SDK/NDK tools
 
-```env
-HASHMON_XLA_ADDRESS=your_xla_wallet_here
-HASHMON_SALV_ADDRESS=your_salv_wallet_here
-```
+### Steps
 
-You can also export them manually:
+1. Install Buildozer dependencies:
+   ```bash
+   sudo apt install -y buildozer git zip unzip openjdk-17-jdk
+   pip install buildozer cython
+   ```
 
-```bash
-export HASHMON_XLA_ADDRESS=your_xla_wallet_here
-export HASHMON_SALV_ADDRESS=your_salv_wallet_here
-```
+2. Initialize:
+   ```bash
+   buildozer init
+   ```
+
+3. Update your `buildozer.spec` file:
+   - Set the correct app name and package
+   - Make sure `requirements` includes `kivy`, `requests`
+   - Set the appropriate Android SDK and Python version (usually `python3` or `python3.11`)
+
+4. Build the APK:
+   ```bash
+   buildozer -v android debug
+   ```
+
+5. Your signed `.apk` will be in the `bin/` directory.
 
 ---
-
-## 🧱 Running the monitor
-
-```bash
-python hashmon.py
-```
-
-You’ll see a live terminal dashboard with worker breakdowns for each pool.  
-Press **`q`** to quit gracefully.
-
----
-
-## 📸 Screenshot
-
-*(insert screenshot here)*
-
----
-
-## 🗂 .gitignore and structure
-
-This repo ignores:
-- Python cache files
-- Virtual environments
-- Logs
-- `.env` secrets
 
 ---
 
 ## 📄 License
 
-MIT — do what you want with it. Contributions welcome.
-
----
-
-## 🛠️ Coming Soon?
-
-- Configurable refresh time  
-- Worker history / trend lines  
-- Multi-address support
+MIT License
