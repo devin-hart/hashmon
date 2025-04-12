@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+.venv/
+
+# Editor files
+*.swp
+*.swo
+*.bak
+*~
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Python packaging artifacts
+*.egg-info/
+dist/
+build/
+
+# Logs or run output
+*.log
+nohup.out
+
+# Terminal screenshots (e.g., flameshot, scrot)
+*.png
+*.jpg
+
+# Cache or API response dumps
+.cache/
+*.json
+
+# VS Code / IDE config
+.vscode/
+.idea/
+
+# Personal settings
+config.yaml
+*.secret
